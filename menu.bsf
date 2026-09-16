@@ -1,0 +1,441 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 312 480)
+	(text "menu" (rect 5 0 27 12)(font "Arial" ))
+	(text "inst" (rect 8 448 20 460)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk25" (rect 0 0 20 12)(font "Arial" ))
+		(text "clk25" (rect 21 27 41 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "rst" (rect 0 0 10 12)(font "Arial" ))
+		(text "rst" (rect 21 43 31 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "frame" (rect 0 0 24 12)(font "Arial" ))
+		(text "frame" (rect 21 59 45 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "inDisplayArea" (rect 0 0 56 12)(font "Arial" ))
+		(text "inDisplayArea" (rect 21 75 77 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 1))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "x[9..0]" (rect 0 0 24 12)(font "Arial" ))
+		(text "x[9..0]" (rect 21 91 45 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 3))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "y[9..0]" (rect 0 0 25 12)(font "Arial" ))
+		(text "y[9..0]" (rect 21 107 46 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 3))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "color_pixel_sprite2[2..0]" (rect 0 0 93 12)(font "Arial" ))
+		(text "color_pixel_sprite2[2..0]" (rect 21 123 114 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 3))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "color_play[2..0]" (rect 0 0 61 12)(font "Arial" ))
+		(text "color_play[2..0]" (rect 21 139 82 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 3))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "color_playselect[2..0]" (rect 0 0 83 12)(font "Arial" ))
+		(text "color_playselect[2..0]" (rect 21 155 104 167)(font "Arial" ))
+		(line (pt 0 160)(pt 16 160)(line_width 3))
+	)
+	(port
+		(pt 0 176)
+		(input)
+		(text "color_tuto[2..0]" (rect 0 0 59 12)(font "Arial" ))
+		(text "color_tuto[2..0]" (rect 21 171 80 183)(font "Arial" ))
+		(line (pt 0 176)(pt 16 176)(line_width 3))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "color_tutoselect[2..0]" (rect 0 0 81 12)(font "Arial" ))
+		(text "color_tutoselect[2..0]" (rect 21 187 102 199)(font "Arial" ))
+		(line (pt 0 192)(pt 16 192)(line_width 3))
+	)
+	(port
+		(pt 0 208)
+		(input)
+		(text "color_speed[2..0]" (rect 0 0 68 12)(font "Arial" ))
+		(text "color_speed[2..0]" (rect 21 203 89 215)(font "Arial" ))
+		(line (pt 0 208)(pt 16 208)(line_width 3))
+	)
+	(port
+		(pt 0 224)
+		(input)
+		(text "color_speedselect[2..0]" (rect 0 0 90 12)(font "Arial" ))
+		(text "color_speedselect[2..0]" (rect 21 219 111 231)(font "Arial" ))
+		(line (pt 0 224)(pt 16 224)(line_width 3))
+	)
+	(port
+		(pt 0 240)
+		(input)
+		(text "color_quit[2..0]" (rect 0 0 57 12)(font "Arial" ))
+		(text "color_quit[2..0]" (rect 21 235 78 247)(font "Arial" ))
+		(line (pt 0 240)(pt 16 240)(line_width 3))
+	)
+	(port
+		(pt 0 256)
+		(input)
+		(text "color_quitselect[2..0]" (rect 0 0 80 12)(font "Arial" ))
+		(text "color_quitselect[2..0]" (rect 21 251 101 263)(font "Arial" ))
+		(line (pt 0 256)(pt 16 256)(line_width 3))
+	)
+	(port
+		(pt 0 272)
+		(input)
+		(text "color_modeclassic[2..0]" (rect 0 0 93 12)(font "Arial" ))
+		(text "color_modeclassic[2..0]" (rect 21 267 114 279)(font "Arial" ))
+		(line (pt 0 272)(pt 16 272)(line_width 3))
+	)
+	(port
+		(pt 0 288)
+		(input)
+		(text "color_modezen[2..0]" (rect 0 0 80 12)(font "Arial" ))
+		(text "color_modezen[2..0]" (rect 21 283 101 295)(font "Arial" ))
+		(line (pt 0 288)(pt 16 288)(line_width 3))
+	)
+	(port
+		(pt 0 304)
+		(input)
+		(text "color_modearcade[2..0]" (rect 0 0 94 12)(font "Arial" ))
+		(text "color_modearcade[2..0]" (rect 21 299 115 311)(font "Arial" ))
+		(line (pt 0 304)(pt 16 304)(line_width 3))
+	)
+	(port
+		(pt 0 320)
+		(input)
+		(text "color_speedslow[2..0]" (rect 0 0 84 12)(font "Arial" ))
+		(text "color_speedslow[2..0]" (rect 21 315 105 327)(font "Arial" ))
+		(line (pt 0 320)(pt 16 320)(line_width 3))
+	)
+	(port
+		(pt 0 336)
+		(input)
+		(text "color_speedmedium[2..0]" (rect 0 0 100 12)(font "Arial" ))
+		(text "color_speedmedium[2..0]" (rect 21 331 121 343)(font "Arial" ))
+		(line (pt 0 336)(pt 16 336)(line_width 3))
+	)
+	(port
+		(pt 0 352)
+		(input)
+		(text "color_speedfast[2..0]" (rect 0 0 83 12)(font "Arial" ))
+		(text "color_speedfast[2..0]" (rect 21 347 104 359)(font "Arial" ))
+		(line (pt 0 352)(pt 16 352)(line_width 3))
+	)
+	(port
+		(pt 0 368)
+		(input)
+		(text "color_tutorial[2..0]" (rect 0 0 69 12)(font "Arial" ))
+		(text "color_tutorial[2..0]" (rect 21 363 90 375)(font "Arial" ))
+		(line (pt 0 368)(pt 16 368)(line_width 3))
+	)
+	(port
+		(pt 0 384)
+		(input)
+		(text "switch1" (rect 0 0 27 12)(font "Arial" ))
+		(text "switch1" (rect 21 379 48 391)(font "Arial" ))
+		(line (pt 0 384)(pt 16 384)(line_width 1))
+	)
+	(port
+		(pt 0 400)
+		(input)
+		(text "switch2" (rect 0 0 28 12)(font "Arial" ))
+		(text "switch2" (rect 21 395 49 407)(font "Arial" ))
+		(line (pt 0 400)(pt 16 400)(line_width 1))
+	)
+	(port
+		(pt 0 416)
+		(input)
+		(text "switch3" (rect 0 0 28 12)(font "Arial" ))
+		(text "switch3" (rect 21 411 49 423)(font "Arial" ))
+		(line (pt 0 416)(pt 16 416)(line_width 1))
+	)
+	(port
+		(pt 296 32)
+		(output)
+		(text "r[3..0]" (rect 0 0 23 12)(font "Arial" ))
+		(text "r[3..0]" (rect 252 27 275 39)(font "Arial" ))
+		(line (pt 296 32)(pt 280 32)(line_width 3))
+	)
+	(port
+		(pt 296 48)
+		(output)
+		(text "g[3..0]" (rect 0 0 24 12)(font "Arial" ))
+		(text "g[3..0]" (rect 251 43 275 55)(font "Arial" ))
+		(line (pt 296 48)(pt 280 48)(line_width 3))
+	)
+	(port
+		(pt 296 64)
+		(output)
+		(text "b[3..0]" (rect 0 0 24 12)(font "Arial" ))
+		(text "b[3..0]" (rect 251 59 275 71)(font "Arial" ))
+		(line (pt 296 64)(pt 280 64)(line_width 3))
+	)
+	(port
+		(pt 296 80)
+		(output)
+		(text "adr_sprite2[12..0]" (rect 0 0 68 12)(font "Arial" ))
+		(text "adr_sprite2[12..0]" (rect 207 75 275 87)(font "Arial" ))
+		(line (pt 296 80)(pt 280 80)(line_width 3))
+	)
+	(port
+		(pt 296 96)
+		(output)
+		(text "adr_play[12..0]" (rect 0 0 59 12)(font "Arial" ))
+		(text "adr_play[12..0]" (rect 216 91 275 103)(font "Arial" ))
+		(line (pt 296 96)(pt 280 96)(line_width 3))
+	)
+	(port
+		(pt 296 112)
+		(output)
+		(text "adr_playselect[12..0]" (rect 0 0 81 12)(font "Arial" ))
+		(text "adr_playselect[12..0]" (rect 194 107 275 119)(font "Arial" ))
+		(line (pt 296 112)(pt 280 112)(line_width 3))
+	)
+	(port
+		(pt 296 128)
+		(output)
+		(text "adr_tuto[12..0]" (rect 0 0 56 12)(font "Arial" ))
+		(text "adr_tuto[12..0]" (rect 219 123 275 135)(font "Arial" ))
+		(line (pt 296 128)(pt 280 128)(line_width 3))
+	)
+	(port
+		(pt 296 144)
+		(output)
+		(text "adr_tutoselect[12..0]" (rect 0 0 79 12)(font "Arial" ))
+		(text "adr_tutoselect[12..0]" (rect 196 139 275 151)(font "Arial" ))
+		(line (pt 296 144)(pt 280 144)(line_width 3))
+	)
+	(port
+		(pt 296 160)
+		(output)
+		(text "adr_speed[12..0]" (rect 0 0 66 12)(font "Arial" ))
+		(text "adr_speed[12..0]" (rect 209 155 275 167)(font "Arial" ))
+		(line (pt 296 160)(pt 280 160)(line_width 3))
+	)
+	(port
+		(pt 296 176)
+		(output)
+		(text "adr_speedselect[12..0]" (rect 0 0 88 12)(font "Arial" ))
+		(text "adr_speedselect[12..0]" (rect 187 171 275 183)(font "Arial" ))
+		(line (pt 296 176)(pt 280 176)(line_width 3))
+	)
+	(port
+		(pt 296 192)
+		(output)
+		(text "adr_quit[12..0]" (rect 0 0 55 12)(font "Arial" ))
+		(text "adr_quit[12..0]" (rect 220 187 275 199)(font "Arial" ))
+		(line (pt 296 192)(pt 280 192)(line_width 3))
+	)
+	(port
+		(pt 296 208)
+		(output)
+		(text "adr_quitselect[12..0]" (rect 0 0 77 12)(font "Arial" ))
+		(text "adr_quitselect[12..0]" (rect 198 203 275 215)(font "Arial" ))
+		(line (pt 296 208)(pt 280 208)(line_width 3))
+	)
+	(port
+		(pt 296 224)
+		(output)
+		(text "adr_modeclassic[15..0]" (rect 0 0 90 12)(font "Arial" ))
+		(text "adr_modeclassic[15..0]" (rect 185 219 275 231)(font "Arial" ))
+		(line (pt 296 224)(pt 280 224)(line_width 3))
+	)
+	(port
+		(pt 296 240)
+		(output)
+		(text "adr_modearcade[15..0]" (rect 0 0 92 12)(font "Arial" ))
+		(text "adr_modearcade[15..0]" (rect 183 235 275 247)(font "Arial" ))
+		(line (pt 296 240)(pt 280 240)(line_width 3))
+	)
+	(port
+		(pt 296 256)
+		(output)
+		(text "adr_modezen[15..0]" (rect 0 0 77 12)(font "Arial" ))
+		(text "adr_modezen[15..0]" (rect 198 251 275 263)(font "Arial" ))
+		(line (pt 296 256)(pt 280 256)(line_width 3))
+	)
+	(port
+		(pt 296 272)
+		(output)
+		(text "adr_speedslow[16..0]" (rect 0 0 82 12)(font "Arial" ))
+		(text "adr_speedslow[16..0]" (rect 193 267 275 279)(font "Arial" ))
+		(line (pt 296 272)(pt 280 272)(line_width 3))
+	)
+	(port
+		(pt 296 288)
+		(output)
+		(text "adr_speedmedium[16..0]" (rect 0 0 97 12)(font "Arial" ))
+		(text "adr_speedmedium[16..0]" (rect 178 283 275 295)(font "Arial" ))
+		(line (pt 296 288)(pt 280 288)(line_width 3))
+	)
+	(port
+		(pt 296 304)
+		(output)
+		(text "adr_speedfast[16..0]" (rect 0 0 81 12)(font "Arial" ))
+		(text "adr_speedfast[16..0]" (rect 194 299 275 311)(font "Arial" ))
+		(line (pt 296 304)(pt 280 304)(line_width 3))
+	)
+	(port
+		(pt 296 320)
+		(output)
+		(text "adr_tutorial[15..0]" (rect 0 0 67 12)(font "Arial" ))
+		(text "adr_tutorial[15..0]" (rect 208 315 275 327)(font "Arial" ))
+		(line (pt 296 320)(pt 280 320)(line_width 3))
+	)
+	(port
+		(pt 296 336)
+		(output)
+		(text "confirmchoix1" (rect 0 0 54 12)(font "Arial" ))
+		(text "confirmchoix1" (rect 221 331 275 343)(font "Arial" ))
+		(line (pt 296 336)(pt 280 336)(line_width 1))
+	)
+	(port
+		(pt 296 352)
+		(output)
+		(text "confirmchoix2" (rect 0 0 55 12)(font "Arial" ))
+		(text "confirmchoix2" (rect 220 347 275 359)(font "Arial" ))
+		(line (pt 296 352)(pt 280 352)(line_width 1))
+	)
+	(port
+		(pt 296 368)
+		(output)
+		(text "sortiesupp" (rect 0 0 40 12)(font "Arial" ))
+		(text "sortiesupp" (rect 235 363 275 375)(font "Arial" ))
+		(line (pt 296 368)(pt 280 368)(line_width 1))
+	)
+	(port
+		(pt 296 384)
+		(output)
+		(text "choix_jeu[1..0]" (rect 0 0 55 12)(font "Arial" ))
+		(text "choix_jeu[1..0]" (rect 220 379 275 391)(font "Arial" ))
+		(line (pt 296 384)(pt 280 384)(line_width 3))
+	)
+	(port
+		(pt 296 400)
+		(output)
+		(text "choix_speed[1..0]" (rect 0 0 68 12)(font "Arial" ))
+		(text "choix_speed[1..0]" (rect 207 395 275 407)(font "Arial" ))
+		(line (pt 296 400)(pt 280 400)(line_width 3))
+	)
+	(port
+		(pt 296 416)
+		(output)
+		(text "reset_bouton" (rect 0 0 51 12)(font "Arial" ))
+		(text "reset_bouton" (rect 224 411 275 423)(font "Arial" ))
+		(line (pt 296 416)(pt 280 416)(line_width 1))
+	)
+	(parameter
+		"sprite_width"
+		"128"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"sprite_height"
+		"64"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"screen_width"
+		"640"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"screen_height"
+		"480"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"sprite_width2"
+		"640"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"sprite_height2"
+		"480"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"sprite_width3"
+		"320"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"sprite_height3"
+		"240"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"sprite_width4"
+		"256"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"sprite_height4"
+		"192"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"sprite_width5"
+		"224"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"sprite_height5"
+		"168"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 280 448)(line_width 1))
+	)
+	(annotation_block (parameter)(rect 312 -64 412 16))
+)

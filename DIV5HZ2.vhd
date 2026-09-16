@@ -1,0 +1,177 @@
+-- Copyright (C) 2020  Intel Corporation. All rights reserved.
+-- Your use of Intel Corporation's design tools, logic functions 
+-- and other software and tools, and any partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Intel Program License 
+-- Subscription Agreement, the Intel Quartus Prime License Agreement,
+-- the Intel FPGA IP License Agreement, or other applicable license
+-- agreement, including, without limitation, that your use is for
+-- the sole purpose of programming logic devices manufactured by
+-- Intel and sold by Intel or its authorized distributors.  Please
+-- refer to the applicable agreement for further details, at
+-- https://fpgasoftware.intel.com/eula.
+
+-- PROGRAM		"Quartus Prime"
+-- VERSION		"Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition"
+-- CREATED		"Thu Oct 03 00:23:50 2024"
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all; 
+
+LIBRARY work;
+
+ENTITY DIV5HZ2 IS 
+	PORT
+	(
+		Clock :  IN  STD_LOGIC;
+		outdiv :  OUT  STD_LOGIC
+	);
+END DIV5HZ2;
+
+ARCHITECTURE bdf_type OF DIV5HZ2 IS 
+
+ATTRIBUTE black_box : BOOLEAN;
+ATTRIBUTE noopt : BOOLEAN;
+
+COMPONENT \74390_0\
+	PORT(2CLKA : IN STD_LOGIC;
+		 2CLR : IN STD_LOGIC;
+		 2CLKB : IN STD_LOGIC;
+		 1CLR : IN STD_LOGIC;
+		 1CLKA : IN STD_LOGIC;
+		 1CLKB : IN STD_LOGIC;
+		 1QA : OUT STD_LOGIC;
+		 1QD : OUT STD_LOGIC;
+		 2QA : OUT STD_LOGIC;
+		 2QD : OUT STD_LOGIC);
+END COMPONENT;
+ATTRIBUTE black_box OF \74390_0\: COMPONENT IS true;
+ATTRIBUTE noopt OF \74390_0\: COMPONENT IS true;
+
+COMPONENT \74390_1\
+	PORT(2CLKA : IN STD_LOGIC;
+		 2CLR : IN STD_LOGIC;
+		 2CLKB : IN STD_LOGIC;
+		 1CLR : IN STD_LOGIC;
+		 1CLKA : IN STD_LOGIC;
+		 1CLKB : IN STD_LOGIC;
+		 1QA : OUT STD_LOGIC;
+		 1QD : OUT STD_LOGIC;
+		 2QA : OUT STD_LOGIC;
+		 2QD : OUT STD_LOGIC);
+END COMPONENT;
+ATTRIBUTE black_box OF \74390_1\: COMPONENT IS true;
+ATTRIBUTE noopt OF \74390_1\: COMPONENT IS true;
+
+COMPONENT \74390_2\
+	PORT(2CLKA : IN STD_LOGIC;
+		 2CLR : IN STD_LOGIC;
+		 2CLKB : IN STD_LOGIC;
+		 1CLR : IN STD_LOGIC;
+		 1CLKA : IN STD_LOGIC;
+		 1CLKB : IN STD_LOGIC;
+		 1QA : OUT STD_LOGIC;
+		 1QD : OUT STD_LOGIC;
+		 2QA : OUT STD_LOGIC;
+		 2QD : OUT STD_LOGIC);
+END COMPONENT;
+ATTRIBUTE black_box OF \74390_2\: COMPONENT IS true;
+ATTRIBUTE noopt OF \74390_2\: COMPONENT IS true;
+
+COMPONENT \7490_3\
+	PORT(SET9A : IN STD_LOGIC;
+		 CLRA : IN STD_LOGIC;
+		 SET9B : IN STD_LOGIC;
+		 CLKB : IN STD_LOGIC;
+		 CLKA : IN STD_LOGIC;
+		 CLRB : IN STD_LOGIC;
+		 QD : OUT STD_LOGIC;
+		 QA : OUT STD_LOGIC);
+END COMPONENT;
+ATTRIBUTE black_box OF \7490_3\: COMPONENT IS true;
+ATTRIBUTE noopt OF \7490_3\: COMPONENT IS true;
+
+SIGNAL	SYNTHESIZED_WIRE_0 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_23 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_2 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_4 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_5 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_24 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_7 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_9 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_10 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_11 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_25 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_13 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_15 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_16 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_26 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_20 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_21 :  STD_LOGIC;
+
+
+BEGIN 
+SYNTHESIZED_WIRE_23 <= '0';
+SYNTHESIZED_WIRE_24 <= '0';
+SYNTHESIZED_WIRE_25 <= '0';
+SYNTHESIZED_WIRE_26 <= '0';
+
+
+
+b2v_inst : 74390_0
+PORT MAP(2CLKA => SYNTHESIZED_WIRE_0,
+		 2CLR => SYNTHESIZED_WIRE_23,
+		 2CLKB => SYNTHESIZED_WIRE_2,
+		 1CLR => SYNTHESIZED_WIRE_23,
+		 1CLKA => SYNTHESIZED_WIRE_4,
+		 1CLKB => Clock,
+		 1QA => SYNTHESIZED_WIRE_2,
+		 1QD => SYNTHESIZED_WIRE_4,
+		 2QA => SYNTHESIZED_WIRE_10,
+		 2QD => SYNTHESIZED_WIRE_0);
+
+
+
+
+b2v_inst5 : 74390_1
+PORT MAP(2CLKA => SYNTHESIZED_WIRE_5,
+		 2CLR => SYNTHESIZED_WIRE_24,
+		 2CLKB => SYNTHESIZED_WIRE_7,
+		 1CLR => SYNTHESIZED_WIRE_24,
+		 1CLKA => SYNTHESIZED_WIRE_9,
+		 1CLKB => SYNTHESIZED_WIRE_10,
+		 1QA => SYNTHESIZED_WIRE_7,
+		 1QD => SYNTHESIZED_WIRE_9,
+		 2QA => SYNTHESIZED_WIRE_16,
+		 2QD => SYNTHESIZED_WIRE_5);
+
+
+
+b2v_inst7 : 74390_2
+PORT MAP(2CLKA => SYNTHESIZED_WIRE_11,
+		 2CLR => SYNTHESIZED_WIRE_25,
+		 2CLKB => SYNTHESIZED_WIRE_13,
+		 1CLR => SYNTHESIZED_WIRE_25,
+		 1CLKA => SYNTHESIZED_WIRE_15,
+		 1CLKB => SYNTHESIZED_WIRE_16,
+		 1QA => SYNTHESIZED_WIRE_13,
+		 1QD => SYNTHESIZED_WIRE_15,
+		 2QA => SYNTHESIZED_WIRE_20,
+		 2QD => SYNTHESIZED_WIRE_11);
+
+
+
+b2v_inst9 : 7490_3
+PORT MAP(SET9A => SYNTHESIZED_WIRE_26,
+		 CLRA => SYNTHESIZED_WIRE_26,
+		 SET9B => SYNTHESIZED_WIRE_26,
+		 CLKB => SYNTHESIZED_WIRE_20,
+		 CLKA => SYNTHESIZED_WIRE_21,
+		 CLRB => SYNTHESIZED_WIRE_26,
+		 QD => SYNTHESIZED_WIRE_21,
+		 QA => outdiv);
+
+
+END bdf_type;

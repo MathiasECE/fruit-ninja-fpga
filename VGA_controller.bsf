@@ -1,0 +1,303 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 280 384)
+	(text "VGA_controller" (rect 5 0 69 12)(font "Arial" ))
+	(text "inst" (rect 8 352 20 364)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk25" (rect 0 0 20 12)(font "Arial" ))
+		(text "clk25" (rect 21 27 41 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "clkfruit" (rect 0 0 25 12)(font "Arial" ))
+		(text "clkfruit" (rect 21 43 46 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "rst" (rect 0 0 10 12)(font "Arial" ))
+		(text "rst" (rect 21 59 31 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "boutton" (rect 0 0 28 12)(font "Arial" ))
+		(text "boutton" (rect 21 75 49 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 1))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "rnd_byte[7..0]" (rect 0 0 56 12)(font "Arial" ))
+		(text "rnd_byte[7..0]" (rect 21 91 77 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 3))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "frame" (rect 0 0 24 12)(font "Arial" ))
+		(text "frame" (rect 21 107 45 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 1))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "inDisplayArea" (rect 0 0 56 12)(font "Arial" ))
+		(text "inDisplayArea" (rect 21 123 77 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 1))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "px[9..0]" (rect 0 0 29 12)(font "Arial" ))
+		(text "px[9..0]" (rect 21 139 50 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 3))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "py[9..0]" (rect 0 0 30 12)(font "Arial" ))
+		(text "py[9..0]" (rect 21 155 51 167)(font "Arial" ))
+		(line (pt 0 160)(pt 16 160)(line_width 3))
+	)
+	(port
+		(pt 0 176)
+		(input)
+		(text "color_pixel_sprite1[2..0]" (rect 0 0 92 12)(font "Arial" ))
+		(text "color_pixel_sprite1[2..0]" (rect 21 171 113 183)(font "Arial" ))
+		(line (pt 0 176)(pt 16 176)(line_width 3))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "color_pixel_sprite2[2..0]" (rect 0 0 93 12)(font "Arial" ))
+		(text "color_pixel_sprite2[2..0]" (rect 21 187 114 199)(font "Arial" ))
+		(line (pt 0 192)(pt 16 192)(line_width 3))
+	)
+	(port
+		(pt 0 208)
+		(input)
+		(text "color_pixel_sprite3[2..0]" (rect 0 0 93 12)(font "Arial" ))
+		(text "color_pixel_sprite3[2..0]" (rect 21 203 114 215)(font "Arial" ))
+		(line (pt 0 208)(pt 16 208)(line_width 3))
+	)
+	(port
+		(pt 0 224)
+		(input)
+		(text "color_pixel_sprite4[2..0]" (rect 0 0 94 12)(font "Arial" ))
+		(text "color_pixel_sprite4[2..0]" (rect 21 219 115 231)(font "Arial" ))
+		(line (pt 0 224)(pt 16 224)(line_width 3))
+	)
+	(port
+		(pt 0 240)
+		(input)
+		(text "color_pixel_sprite5[2..0]" (rect 0 0 93 12)(font "Arial" ))
+		(text "color_pixel_sprite5[2..0]" (rect 21 235 114 247)(font "Arial" ))
+		(line (pt 0 240)(pt 16 240)(line_width 3))
+	)
+	(port
+		(pt 0 256)
+		(input)
+		(text "color_pixel_sprite6[2..0]" (rect 0 0 93 12)(font "Arial" ))
+		(text "color_pixel_sprite6[2..0]" (rect 21 251 114 263)(font "Arial" ))
+		(line (pt 0 256)(pt 16 256)(line_width 3))
+	)
+	(port
+		(pt 0 272)
+		(input)
+		(text "mode[1..0]" (rect 0 0 41 12)(font "Arial" ))
+		(text "mode[1..0]" (rect 21 267 62 279)(font "Arial" ))
+		(line (pt 0 272)(pt 16 272)(line_width 3))
+	)
+	(port
+		(pt 0 288)
+		(input)
+		(text "PlusDeVie" (rect 0 0 42 12)(font "Arial" ))
+		(text "PlusDeVie" (rect 21 283 63 295)(font "Arial" ))
+		(line (pt 0 288)(pt 16 288)(line_width 1))
+	)
+	(port
+		(pt 0 304)
+		(input)
+		(text "Distance[13..0]" (rect 0 0 57 12)(font "Arial" ))
+		(text "Distance[13..0]" (rect 21 299 78 311)(font "Arial" ))
+		(line (pt 0 304)(pt 16 304)(line_width 3))
+	)
+	(port
+		(pt 0 320)
+		(input)
+		(text "Entree_Angle[4..0]" (rect 0 0 77 12)(font "Arial" ))
+		(text "Entree_Angle[4..0]" (rect 21 315 98 327)(font "Arial" ))
+		(line (pt 0 320)(pt 16 320)(line_width 3))
+	)
+	(port
+		(pt 0 336)
+		(input)
+		(text "vitesse[1..0]" (rect 0 0 47 12)(font "Arial" ))
+		(text "vitesse[1..0]" (rect 21 331 68 343)(font "Arial" ))
+		(line (pt 0 336)(pt 16 336)(line_width 3))
+	)
+	(port
+		(pt 264 32)
+		(output)
+		(text "r[3..0]" (rect 0 0 23 12)(font "Arial" ))
+		(text "r[3..0]" (rect 220 27 243 39)(font "Arial" ))
+		(line (pt 264 32)(pt 248 32)(line_width 3))
+	)
+	(port
+		(pt 264 48)
+		(output)
+		(text "g[3..0]" (rect 0 0 24 12)(font "Arial" ))
+		(text "g[3..0]" (rect 219 43 243 55)(font "Arial" ))
+		(line (pt 264 48)(pt 248 48)(line_width 3))
+	)
+	(port
+		(pt 264 64)
+		(output)
+		(text "b[3..0]" (rect 0 0 24 12)(font "Arial" ))
+		(text "b[3..0]" (rect 219 59 243 71)(font "Arial" ))
+		(line (pt 264 64)(pt 248 64)(line_width 3))
+	)
+	(port
+		(pt 264 80)
+		(output)
+		(text "adr_sprite1[10..0]" (rect 0 0 67 12)(font "Arial" ))
+		(text "adr_sprite1[10..0]" (rect 176 75 243 87)(font "Arial" ))
+		(line (pt 264 80)(pt 248 80)(line_width 3))
+	)
+	(port
+		(pt 264 96)
+		(output)
+		(text "adr_sprite2[10..0]" (rect 0 0 68 12)(font "Arial" ))
+		(text "adr_sprite2[10..0]" (rect 175 91 243 103)(font "Arial" ))
+		(line (pt 264 96)(pt 248 96)(line_width 3))
+	)
+	(port
+		(pt 264 112)
+		(output)
+		(text "adr_sprite3[10..0]" (rect 0 0 68 12)(font "Arial" ))
+		(text "adr_sprite3[10..0]" (rect 175 107 243 119)(font "Arial" ))
+		(line (pt 264 112)(pt 248 112)(line_width 3))
+	)
+	(port
+		(pt 264 128)
+		(output)
+		(text "adr_sprite4[10..0]" (rect 0 0 69 12)(font "Arial" ))
+		(text "adr_sprite4[10..0]" (rect 174 123 243 135)(font "Arial" ))
+		(line (pt 264 128)(pt 248 128)(line_width 3))
+	)
+	(port
+		(pt 264 144)
+		(output)
+		(text "adr_sprite5[10..0]" (rect 0 0 68 12)(font "Arial" ))
+		(text "adr_sprite5[10..0]" (rect 175 139 243 151)(font "Arial" ))
+		(line (pt 264 144)(pt 248 144)(line_width 3))
+	)
+	(port
+		(pt 264 160)
+		(output)
+		(text "adr_sprite6[10..0]" (rect 0 0 68 12)(font "Arial" ))
+		(text "adr_sprite6[10..0]" (rect 175 155 243 167)(font "Arial" ))
+		(line (pt 264 160)(pt 248 160)(line_width 3))
+	)
+	(port
+		(pt 264 176)
+		(output)
+		(text "rstTimer" (rect 0 0 34 12)(font "Arial" ))
+		(text "rstTimer" (rect 209 171 243 183)(font "Arial" ))
+		(line (pt 264 176)(pt 248 176)(line_width 1))
+	)
+	(port
+		(pt 264 192)
+		(output)
+		(text "TimerActif" (rect 0 0 43 12)(font "Arial" ))
+		(text "TimerActif" (rect 200 187 243 199)(font "Arial" ))
+		(line (pt 264 192)(pt 248 192)(line_width 1))
+	)
+	(port
+		(pt 264 208)
+		(output)
+		(text "rstVie" (rect 0 0 24 12)(font "Arial" ))
+		(text "rstVie" (rect 219 203 243 215)(font "Arial" ))
+		(line (pt 264 208)(pt 248 208)(line_width 1))
+	)
+	(port
+		(pt 264 224)
+		(output)
+		(text "VieActive" (rect 0 0 41 12)(font "Arial" ))
+		(text "VieActive" (rect 202 219 243 231)(font "Arial" ))
+		(line (pt 264 224)(pt 248 224)(line_width 1))
+	)
+	(port
+		(pt 264 240)
+		(output)
+		(text "suprVie" (rect 0 0 31 12)(font "Arial" ))
+		(text "suprVie" (rect 212 235 243 247)(font "Arial" ))
+		(line (pt 264 240)(pt 248 240)(line_width 1))
+	)
+	(port
+		(pt 264 256)
+		(output)
+		(text "nb_points[13..0]" (rect 0 0 61 12)(font "Arial" ))
+		(text "nb_points[13..0]" (rect 182 251 243 263)(font "Arial" ))
+		(line (pt 264 256)(pt 248 256)(line_width 3))
+	)
+	(port
+		(pt 264 272)
+		(output)
+		(text "selection" (rect 0 0 33 12)(font "Arial" ))
+		(text "selection" (rect 210 267 243 279)(font "Arial" ))
+		(line (pt 264 272)(pt 248 272)(line_width 1))
+	)
+	(parameter
+		"sprite_width"
+		"64"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"sprite_height"
+		"32"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"screen_width"
+		"640"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"screen_height"
+		"480"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 248 352)(line_width 1))
+	)
+	(annotation_block (parameter)(rect 280 -64 380 16))
+)

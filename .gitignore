@@ -1,0 +1,27 @@
+# ─── Quartus Build Artifacts & Databases ─────────────────────────────────────
+db/
+incremental_db/
+output_files/
+simulation/
+greybox_tmp/
+.qsys_edit/
+
+# ─── Quartus Logs and Temporary Reports ─────────────────────────────────────────
+*.rpt
+*.done
+*.sft
+*.summary
+*.smsg
+*.jdi
+*.pin
+*.sld
+log.txt
+
+# ─── Quartus Workspace and User Config ─────────────────────────────────────────
+*.qws
+*.bak
+*.bak*
+
+# ─── OS files ─────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
