@@ -91,8 +91,8 @@ All physical pin assignments are pre-configured in `VGA_GAme2.qsf`:
 
 ### 1. Fixed-Point Tangent Table Line Equation
 To achieve real-time angular slicing without floating-point units or divider IP blocks, blade slope calculations use scaled integer arithmetic:
-$$y_{\text{blade}}(x) = \text{height}_{\text{cut}} - \frac{\text{tan\_table}(\theta) \cdot x}{1024}$$
-Where $\text{tan\_table}(\theta) = \lfloor 1024 \cdot \tan(\theta) \rfloor$ stored in a symmetric 19-entry lookup table.
+$$y_{\text{blade}}(x) = \text{height}_{\text{cut}} - \frac{\text{tan}_{\text{table}}(\theta) \cdot x}{1024}$$
+Where $\text{tan}_{\text{table}}(\theta) = \lfloor 1024 \cdot \tan(\theta) \rfloor$ stored in a symmetric 19-entry lookup table (`tan_table`).
 
 ### 2. Line-Box Intersection in Hardware
 For every active sprite with bounding box $[x_i, x_i + W] \times [y_i, y_i + H]$:
