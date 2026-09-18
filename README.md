@@ -31,7 +31,7 @@ Unlike conventional embedded systems that rely on a softcore microcontroller (su
 
 The system is organized into modular hardware blocks clocked synchronously:
 
-![Fruit Ninja FPGA Hardware Architecture](docs/architecture.png)
+![Fruit Ninja FPGA Hardware Architecture](docs/architecture.svg)
 
 <details>
 <summary><b>View Mermaid Source Code</b></summary>
@@ -210,7 +210,7 @@ fruit-ninja-fpga/
 ├── schematics/         # Quartus Block Designs (.bdf) & Symbol files (.bsf)
 ├── ip/                 # Generated MegaWizard IP blocks (PLL clock, ROM wrappers, .qip, .cmp)
 ├── docs/               # Architecture diagrams and specifications
-│   └── architecture.png
+│   └── architecture.svg
 ├── VGA_GAme2.qpf       # Quartus Prime project file
 ├── VGA_GAme2.qsf       # Pin assignments & device configuration
 ├── README.md           # Technical documentation and hardware guide
