@@ -31,42 +31,7 @@ Unlike conventional embedded systems that rely on a softcore microcontroller (su
 
 The system is organized into modular hardware blocks clocked synchronously:
 
-![Fruit Ninja FPGA Hardware Architecture](docs/architecture.svg)
-
-<details>
-<summary><b>View Mermaid Source Code</b></summary>
-
-```mermaid
-graph TD
-    CLK50[50 MHz Oscillator] --> PLL[Altera PLL: pllClock]
-    PLL -->|25 MHz| SYNC[VGA Timing Generator: vga_sync]
-    PLL -->|25 MHz| CTRL[Core Game Controller: VGA_controller]
-    PLL -->|25 MHz| MENU[Menu FSM: menu]
-    PLL -->|25 MHz| ENC[Rotary Encoder Decoder: encodeur_rotatif]
-
-    US[HC-SR04 Ultrasonic Sensor] -->|Echo Pulse| COUNTER[Echo Counter: counter]
-    COUNTER --> CALC[Distance Calculator: measurement_cal]
-    CALC -->|Distance mm| CTRL
-
-    ROTSW[Rotary Encoder A/B/SW] --> ENC
-    ENC -->|Angle Index| CTRL
-    ROTSW --> MENU
-
-    KEY0[Push Button KEY0] --> RG[Reset Gate: reset_gate]
-    LIVES[Life Counter: decompteur3] -->|Game Over| RG
-    RG -->|reset_out| CTRL
-    RG -->|reset_out| MENU
-
-    MENU -->|Menu RGB| MUX[Video Multiplexer: vga_mux]
-    CTRL -->|Game RGB| MUX
-    SYNC -->|Raster X/Y & Blanking| CTRL
-    SYNC -->|Raster X/Y & Blanking| MENU
-    MUX -->|12-bit RGB & Sync| VGA[VGA Monitor: 640x480 @ 60Hz]
-
-    CTRL -->|Score Binary| BCD[Double Dabble: binary_to_bcd]
-    BCD --> SEGS[7-Segment Displays: HEX0-HEX5]
-```
-</details>
+[![Fruit Ninja FPGA Hardware Architecture](docs/architecture.svg)](docs/architecture.svg)
 
 ---
 
