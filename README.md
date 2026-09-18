@@ -90,23 +90,41 @@ All physical pin assignments are pre-configured in `VGA_GAme2.qsf`:
 ## Mathematical & Algorithmic Highlights
 
 ### 1. Fixed-Point Tangent Table Line Equation
+
 To achieve real-time angular slicing without floating-point units or divider IP blocks, blade slope calculations use scaled integer arithmetic:
-$$y_{\text{blade}}(x) = \text{height}_{\text{cut}} - \frac{\text{tan}_{\text{table}}(\theta) \cdot x}{1024}$$
-Where $\text{tan}_{\text{table}}(\theta) = \lfloor 1024 \cdot \tan(\theta) \rfloor$ stored in a symmetric 19-entry lookup table (`tan_table`).
+
+$$
+y_{\text{blade}}(x) = y_{\text{cut}} - \frac{T(\theta) \cdot x}{1024}
+$$
+
+where $T(\theta) = \lfloor 1024 \cdot \tan(\theta) \rfloor$ is precomputed in the 19-entry symmetric lookup table (`tan_table`).
 
 ### 2. Line-Box Intersection in Hardware
+
 For every active sprite with bounding box $[x_i, x_i + W] \times [y_i, y_i + H]$:
+
 1. Compute blade intercept at left edge: $y_{\text{left}} = y_{\text{blade}}(x_i)$
 2. Compute blade intercept at right edge: $y_{\text{right}} = y_{\text{blade}}(x_i + W)$
 3. Define range: $y_{\text{min}} = \min(y_{\text{left}}, y_{\text{right}})$, $y_{\text{max}} = \max(y_{\text{left}}, y_{\text{right}})$
 4. Detect collision:
-   $$\text{Intersect} = (y_{\text{min}} \le y_i + H) \land (y_{\text{max}} \ge y_i) \land (y_i \in [0, 480])$$
+
+$$
+\text{Intersect} = (y_{\text{min}} \le y_i + H) \land (y_{\text{max}} \ge y_i) \land (y_i \in [0, 480])
+$$
+
 5. A slice is confirmed if $\text{Intersect} = \text{TRUE}$ and the strike button was pressed during the frame.
 
 ### 3. Ultrasonic Echo Reciprocal Scaling
+
 The HC-SR04 pulse duration in nanoseconds is converted to millimeters via a 30-bit fixed-point reciprocal multiplier:
-$$\text{factor} = \frac{2^{42}}{1000 \cdot 5.8} \approx 758283881$$
-$$\text{Distance (mm)} = \frac{(\text{cycles} \cdot 20\text{ ns}) \cdot 758283881}{2^{42}}$$
+
+$$
+\text{factor} = \frac{2^{42}}{1000 \cdot 5.8} \approx 758283881
+$$
+
+$$
+\text{Distance} = \frac{(\text{cycles} \cdot 20\text{ ns}) \cdot 758283881}{2^{42}}
+$$
 
 ---
 
