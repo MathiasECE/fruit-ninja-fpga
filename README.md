@@ -29,113 +29,42 @@ Unlike conventional embedded systems that rely on a softcore microcontroller (su
 
 ## Hardware Architecture
 
-The system is organized into modular, fully synchronous hardware blocks implemented in pure RTL VHDL:
+The system is organized into modular hardware blocks clocked synchronously:
 
-![Fruit Ninja FPGA Hardware Architecture](docs/architecture.svg)
+![Fruit Ninja FPGA Hardware Architecture](docs/architecture.png)
 
 <details>
 <summary><b>View Mermaid Source Code</b></summary>
 
 ```mermaid
-flowchart TB
-    subgraph IN[" External Peripherals & Sensors "]
-        direction TB
-        CLK_OSC["<b>50 MHz Oscillator</b><br/>Onboard Crystal"]
-        US_SENS["<b>HC-SR04 Sensor</b><br/>Ultrasonic Hand Tracker"]
-        ROT_ENC["<b>KY-040 Encoder</b><br/>Rotary Angle Control"]
-        BTN_HIT["<b>Strike Button</b><br/>Blade Trigger Pulse"]
-        BTN_RST["<b>KEY0 Push-Button</b><br/>Active-Low Reset"]
-    end
+graph TD
+    CLK50[50 MHz Oscillator] --> PLL[Altera PLL: pllClock]
+    PLL -->|25 MHz| SYNC[VGA Timing Generator: vga_sync]
+    PLL -->|25 MHz| CTRL[Core Game Controller: VGA_controller]
+    PLL -->|25 MHz| MENU[Menu FSM: menu]
+    PLL -->|25 MHz| ENC[Rotary Encoder Decoder: encodeur_rotatif]
 
-    subgraph FPGA[" Intel MAX 10 FPGA (DE10-Lite) "]
-        direction TB
-        subgraph CLOCK[" Clock Generation "]
-            PLL["<b>Altera PLL</b><br/><code>pllClock.vhd</code><br/>50 MHz → 25 MHz"]
-        end
+    US[HC-SR04 Ultrasonic Sensor] -->|Echo Pulse| COUNTER[Echo Counter: counter]
+    COUNTER --> CALC[Distance Calculator: measurement_cal]
+    CALC -->|Distance mm| CTRL
 
-        subgraph SENSORS[" Sensor Conditioning "]
-            TRIG["<b>Trigger Generator</b><br/><code>trigger_generator.vhd</code>"]
-            DIST["<b>Distance Calculator</b><br/><code>measurement_cal.vhd</code>"]
-            ENC_DEC["<b>Rotary Decoder</b><br/><code>encodeur_rotatif.vhd</code>"]
-            RST_GATE["<b>Reset Gate</b><br/><code>reset_gate.vhd</code>"]
-        end
+    ROTSW[Rotary Encoder A/B/SW] --> ENC
+    ENC -->|Angle Index| CTRL
+    ROTSW --> MENU
 
-        subgraph LOGIC[" Game Engine & FSM "]
-            MENU["<b>Menu FSM</b><br/><code>menu.vhd</code><br/>Classic / Zen / Arcade"]
-            CTRL["<b>Game Controller</b><br/><code>VGA_controller.vhd</code><br/>Physics & 13 Sprites"]
-            LIVES["<b>Life Counter</b><br/><code>decompteur3.vhd</code>"]
-            TIMERS["<b>Timers</b><br/><code>decompteur9/10.vhd</code>"]
-        end
+    KEY0[Push Button KEY0] --> RG[Reset Gate: reset_gate]
+    LIVES[Life Counter: decompteur3] -->|Game Over| RG
+    RG -->|reset_out| CTRL
+    RG -->|reset_out| MENU
 
-        subgraph VIDEO[" VGA Video Pipeline "]
-            SYNC["<b>VGA Timing Gen</b><br/><code>vga_sync.vhd</code><br/>640x480 @ 60 Hz"]
-            ROMS["<b>Sprite ROMs</b><br/><code>ROM0..ROM6.vhd</code><br/>Bitmaps from .mif"]
-            MUX["<b>Video MUX</b><br/><code>vga_mux.vhd</code><br/>Menu / Game Select"]
-        end
-
-        subgraph BCD_BLOCK[" Metrics "]
-            BCD["<b>Double Dabble</b><br/><code>binary_to_bcd.vhd</code>"]
-        end
-    end
-
-    subgraph OUT[" Physical Outputs & Display "]
-        direction TB
-        VGA_MON["<b>VGA Display</b><br/>640x480 @ 60 Hz (12-bit DAC)"]
-        HEX_DISP["<b>6x 7-Segment Displays</b><br/>HEX0–HEX5 (Score & Timer)"]
-    end
-
-    %% Clock distribution
-    CLK_OSC -->|50 MHz| PLL
-    PLL -->|25 MHz| SENSORS
-    PLL -->|25 MHz| LOGIC
-    PLL -->|25 MHz| VIDEO
-
-    %% Sensor inputs
-    US_SENS <-->|Echo / Trigger| TRIG
-    TRIG --> DIST
-    DIST -->|Distance Z| CTRL
-
-    ROT_ENC -->|A / B / SW| ENC_DEC
-    ENC_DEC -->|Angle θ| CTRL
-    ROT_ENC -.->|Nav| MENU
-
-    BTN_HIT -->|Strike Pulse| CTRL
-    BTN_RST --> RST_GATE
-    LIVES -->|Game Over| RST_GATE
-    RST_GATE -->|Sync Reset| CTRL
-    RST_GATE -->|Sync Reset| MENU
-
-    %% Core game interactions
-    CTRL <-->|State / Mode| MENU
-    CTRL -->|Damage| LIVES
-    TIMERS --> CTRL
-
-    %% Video rendering
-    SYNC -->|Raster X/Y| CTRL
-    SYNC -->|Raster X/Y| MENU
-    ROMS -->|Sprite Data| CTRL
-    MENU -->|Menu RGB| MUX
+    MENU -->|Menu RGB| MUX[Video Multiplexer: vga_mux]
     CTRL -->|Game RGB| MUX
-    SYNC -->|HSYNC / VSYNC| MUX
-    MUX -->|12-bit RGB + Sync| VGA_MON
+    SYNC -->|Raster X/Y & Blanking| CTRL
+    SYNC -->|Raster X/Y & Blanking| MENU
+    MUX -->|12-bit RGB & Sync| VGA[VGA Monitor: 640x480 @ 60Hz]
 
-    %% Displays
-    CTRL -->|Binary Score| BCD
-    BCD -->|7-Segment BCD| HEX_DISP
-    TIMERS -->|Seconds| HEX_DISP
-
-    %% Color classes
-    classDef peripheral fill:#eff6ff,stroke:#3b82f6,stroke-width:1.5px,color:#1e3a8a,rx:6px,ry:6px;
-    classDef clockNode fill:#faf5ff,stroke:#a855f7,stroke-width:1.5px,color:#581c87,rx:6px,ry:6px;
-    classDef coreLogic fill:#f8fafc,stroke:#475569,stroke-width:1.5px,color:#0f172a,rx:6px,ry:6px;
-    classDef videoPipeline fill:#ecfdf5,stroke:#10b981,stroke-width:1.5px,color:#064e3b,rx:6px,ry:6px;
-    classDef displayOut fill:#fffbeb,stroke:#f59e0b,stroke-width:1.5px,color:#78350f,rx:6px,ry:6px;
-
-    class CLK_OSC,US_SENS,ROT_ENC,BTN_HIT,BTN_RST peripheral;
-    class PLL clockNode;
-    class TRIG,DIST,ENC_DEC,RST_GATE,MENU,CTRL,LIVES,TIMERS,BCD coreLogic;
-    class SYNC,ROMS,MUX videoPipeline;
-    class VGA_MON,HEX_DISP displayOut;
+    CTRL -->|Score Binary| BCD[Double Dabble: binary_to_bcd]
+    BCD --> SEGS[7-Segment Displays: HEX0-HEX5]
 ```
 </details>
 
@@ -281,7 +210,7 @@ fruit-ninja-fpga/
 ├── schematics/         # Quartus Block Designs (.bdf) & Symbol files (.bsf)
 ├── ip/                 # Generated MegaWizard IP blocks (PLL clock, ROM wrappers, .qip, .cmp)
 ├── docs/               # Architecture diagrams and specifications
-│   └── architecture.svg
+│   └── architecture.png
 ├── VGA_GAme2.qpf       # Quartus Prime project file
 ├── VGA_GAme2.qsf       # Pin assignments & device configuration
 ├── README.md           # Technical documentation and hardware guide
